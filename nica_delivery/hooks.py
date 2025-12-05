@@ -1,25 +1,54 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 app_name = "nica_delivery"
 app_title = "Nica Delivery"
 app_publisher = "Herrold H. Real"
 app_description = "Asignacion, optimizacion, calculo y notificacion de estado de envios"
 app_email = "realherrold@gmail.com"
 app_license = "mit"
+app_color = "#800000"
+app_version = "0.0.1"
+app_icon = "octicon octicon-truck"
+
+desktop_icons = ["Nica Delivery"]
+
+doc_events = {
+	"Sales Invoice": {
+		"on_submit": "nica_delivery.api.create_task_from_invoice",
+		"before_submit": "nica_delivery.api.calculate_shipping_cost"
+	},
+	"Delivery Note": {
+		"on_submit": "nica_delivery.api.create_task_from_delivery_note"
+	}
+}
 
 # Apps
 # ------------------
 
-# required_apps = []
+required_apps = ["frappe", "erpnext"]
 
 # Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-# 	{
-# 		"name": "nica_delivery",
-# 		"logo": "/assets/nica_delivery/logo.png",
-# 		"title": "Nica Delivery",
-# 		"route": "/nica_delivery",
-# 		"has_permission": "nica_delivery.api.permission.has_app_permission"
-# 	}
-# ]
+add_to_apps_screen = [
+	{
+		"name": "nica_delivery",
+		"logo": "/assets/nica_delivery/logo.png",
+		"title": "Nica Delivery",
+		"route": "/nica_delivery",
+		"has_permission": True  # "nica_delivery.api.permission.has_app_permission"
+	}
+]
+
+app_include_js = []
+
+fixtures = [
+	{
+		"doctype": "Client Script",
+		"filters": {
+			"module": ["in", ["Nica Delivery"]]
+		}
+	}
+]
 
 # Includes in <head>
 # ------------------
@@ -246,4 +275,3 @@ app_license = "mit"
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
-

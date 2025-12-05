@@ -1,0 +1,74 @@
+{
+  "creation": "2025-12-02",
+  "doctype": "DocType",
+  "document_type": "Setup",
+  "custom": 0,
+  "engine": "InnoDB",
+  "field_order": [
+    "section_general",
+    "shipping_item",
+    "income_account",
+    "cost_center",
+    "column_break_1",
+    "default_shipping_cost",
+    "enable_auto_task"
+  ],
+  "fields": [
+    {
+      "fieldname": "section_general",
+      "fieldtype": "Section Break",
+      "label": "Configuración General"
+    },
+    {
+      "fieldname": "shipping_item",
+      "fieldtype": "Link",
+      "label": "Item de Envío",
+      "options": "Item",
+      "reqd": 1,
+      "description": "El item que se añade automáticamente (ej: ENVIO)"
+    },
+    {
+      "fieldname": "income_account",
+      "fieldtype": "Link",
+      "label": "Cuenta de Ingresos",
+      "options": "Account",
+      "reqd": 1
+    },
+    {
+      "fieldname": "cost_center",
+      "fieldtype": "Link",
+      "label": "Centro de Costo",
+      "options": "Cost Center",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "default_shipping_cost",
+      "fieldtype": "Currency",
+      "label": "Costo por Defecto (si no hay zona)",
+      "default": "100"
+    },
+    {
+      "fieldname": "enable_auto_task",
+      "fieldtype": "Check",
+      "label": "Crear Tarea de Entrega Automática",
+      "default": 1
+    }
+  ],
+  "module": "Nica Delivery",
+  "name": "Delivery Settings",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1
+    }
+  ],
+  "is_single": 1,
+  "quick_entry": 0
+}

@@ -1,0 +1,60 @@
+{
+  "autoname": "format:LOC-{####}",
+  "creation": "2025-12-02",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "employee",
+    "latitude",
+    "longitude",
+    "timestamp"
+  ],
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Conductor",
+      "options": "Employee",
+      "reqd": 1
+    },
+    {
+      "fieldname": "latitude",
+      "fieldtype": "Float",
+      "label": "Latitud",
+      "reqd": 1
+    },
+    {
+      "fieldname": "longitude",
+      "fieldtype": "Float",
+      "label": "Longitud",
+      "reqd": 1
+    },
+    {
+      "default": "Now",
+      "fieldname": "timestamp",
+      "fieldtype": "Datetime",
+      "label": "Última actualización",
+      "read_only": 1
+    }
+  ],
+  "module": "Nica Delivery",
+  "name": "Driver Location",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "create": 1,
+      "read": 1,
+      "write": 1
+    },
+    {
+      "role": "Delivery Driver",
+      "create": 1,
+      "read": 1,
+      "write": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1
+}

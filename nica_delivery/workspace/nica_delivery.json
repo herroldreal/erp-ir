@@ -1,0 +1,40 @@
+{
+  "name": "Nica Delivery",
+  "label": "Nica Delivery",
+  "title": "Nica Delivery",
+  "icon": "truck",
+  "for_user": "",
+  "public": 1,
+  "links": [
+    {
+      "type": "doctype",
+      "label": "Tareas de Entrega",
+      "name": "Nica Delivery Task",
+      "icon": "package"
+    },
+    {
+      "type": "doctype",
+      "label": "Rutas del Día",
+      "name": "Nica Delivery Route",
+      "icon": "map"
+    },
+    {
+      "type": "doctype",
+      "label": "Zonas de Envío",
+      "name": "Shipping Zone",
+      "icon": "location"
+    },
+    {
+      "type": "doctype",
+      "label": "GPS Conductores",
+      "name": "Driver Location",
+      "icon": "radio-tower"
+    },
+    {
+      "type": "doctype",
+      "label": "Configuración",
+      "name": "Delivery Settings",
+      "icon": "settings"
+    }
+  ]
+}

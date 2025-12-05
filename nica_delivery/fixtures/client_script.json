@@ -1,0 +1,13 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Address",
+  "enabled": 1,
+  "modified": "2025-12-02 20:04:27.852408",
+  "module": "Nica Delivery",
+  "name": "Address WhatsApp",
+  "script": "frappe.ui.form.on(\"Address\", {\n    extract_coordinates_button: function(frm) {\n        const url = frm.doc.whatsapp_location_url || \"\";\n        if (!url) {\n            frappe.msgprint(\"Por favor pega primero la URL de WhatsApp\");\n            return;\n        }\n\n        let lat = null, lng = null;\n\n        // WhatsApp Nicaragua\n        const wa = url.match(/text=([-\\d.]+)%2C([-\\d.]+)/);\n        if (wa) { lat = wa[1]; lng = wa[2]; }\n\n        // Google Maps\n        if (!lat) {\n            const gm = url.match(/q=([-\\d.]+),([-\\d.]+)/);\n            if (gm) { lat = gm[1]; lng = gm[2]; }\n        }\n\n        // Coordenadas directas\n        if (!lat) {\n            const direct = url.match(/([-\\d.]+)[\\s%,]+([-\\d.]+)/);\n            if (direct) { lat = direct[1]; lng = direct[2]; }\n        }\n\n        if (lat && lng) {\n            frm.set_value({\n                latitude: parseFloat(lat).toFixed(6),\n                longitude: parseFloat(lng).toFixed(6)\n            });\n            frm.save().then(() => {\n                frappe.msgprint({\n                    title: \"¡Listo!\",\n                    message: `Coordenadas guardadas: ${lat}, ${lng}`,\n                    indicator: \"green\"\n                });\n            });\n        } else {\n            frappe.msgprint(\"No se pudo extraer la ubicación. Verifica la URL.\");\n        }\n    }\n});",
+  "view": "Form"
+ }
+]

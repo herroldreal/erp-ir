@@ -1,0 +1,61 @@
+{
+  "autoname": "format:ZONA-{####}",
+  "creation": "2025-12-02",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "zone_name",
+    "center_latitude",
+    "center_longitude",
+    "maximum_distance_km",
+    "shipping_cost"
+  ],
+  "fields": [
+    {
+      "fieldname": "zone_name",
+      "fieldtype": "Data",
+      "label": "Nombre de Zona",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "center_latitude",
+      "fieldtype": "Float",
+      "label": "Latitud Centro",
+      "reqd": 1
+    },
+    {
+      "fieldname": "center_longitude",
+      "fieldtype": "Float",
+      "label": "Longitud Centro",
+      "reqd": 1
+    },
+    {
+      "fieldname": "maximum_distance_km",
+      "fieldtype": "Float",
+      "label": "Distancia Máxima (km)",
+      "reqd": 1,
+      "description": "Radio máximo de la zona circular"
+    },
+    {
+      "fieldname": "shipping_cost",
+      "fieldtype": "Currency",
+      "label": "Costo de Envío",
+      "reqd": 1
+    }
+  ],
+  "module": "Nica Delivery",
+  "name": "Shipping Zone",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "title_field": "zone_name"
+}
