@@ -1,5 +1,5 @@
 import frappe
-from nica_delivery.utils.distance import haversine
+from utils.distance import haversine
 
 
 @frappe.whitelist()
